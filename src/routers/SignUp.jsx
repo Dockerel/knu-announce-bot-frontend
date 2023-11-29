@@ -19,6 +19,11 @@ function SignUp() {
           placeholder="Password Check"
           name="password_check"
         />
+        <input
+          type="submit"
+          className="border-solid border-2 px-4 py-3 rounded-lg focus-within:outline-none w-72 mt-1 bg-gray-500 hover:bg-gray-400 text-white transition ease-in-out delay-70 font-semibold text-2xl"
+          value="Submit"
+        />
       </form>
       <a href="/signin">
         <span className="block text-xl mt-5 text-gray-400 hover:text-gray-600 underline font-semibold">
