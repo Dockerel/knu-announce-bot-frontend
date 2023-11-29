@@ -24,7 +24,7 @@ function SignUp() {
       }, 1300);
     },
     onError: (err) => {
-      console.log(err);
+      toast.dismiss(toastId);
       toast.error("Check your username / password.");
     },
   });
@@ -75,9 +75,9 @@ function SignUp() {
             value="Submit"
           />
         </form>
-        <a href="#">
+        <a href="/signup">
           <span className="block text-xl mt-5 text-gray-400 hover:text-gray-600 underline font-semibold">
-            Forgot Password? &rarr;
+            Already have one? &rarr;
           </span>
         </a>
       </div>

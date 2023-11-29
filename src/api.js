@@ -17,3 +17,21 @@ export const signIn = ({ username, password }) => {
     )
     .then((response) => response.data);
 };
+
+export const signUp = ({ username, password, password_check }) => {
+  return instance
+    .post(
+      "users/signup",
+      { username, password, password_check },
+      { headers: { "X-CSRFToken": Cookie.get("csrftoken") || "" } }
+    )
+    .then((response) => response.data);
+};
+
+export const signOut = () => {
+  return instance
+    .post("users/signout", null, {
+      headers: { "X-CSRFToken": Cookie.get("csrftoken") || "" },
+    })
+    .then((response) => response.data);
+};
