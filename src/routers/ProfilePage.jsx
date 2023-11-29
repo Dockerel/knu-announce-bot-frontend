@@ -1,7 +1,7 @@
 function ProfilePage() {
   return (
-    <div class="flex flex-col w-screen h-screen justify-center items-center">
-      <span class="block font-bold text-5xl">ProfilePage</span>
+    <div className="flex flex-col w-screen h-screen justify-center items-center">
+      <span className="block font-bold text-5xl">ProfilePage</span>
     </div>
   );
 }
