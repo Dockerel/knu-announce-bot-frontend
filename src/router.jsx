@@ -4,6 +4,8 @@ import InitialPage from "./routers/InitialPage";
 import SignUp from "./routers/SignUp";
 import SignIn from "./routers/SignIn";
 import Root from "./components/Root";
+import Send from "./routers/Send";
+import MyPage from "./routers/MyPage";
 
 const router = createBrowserRouter([
   {
@@ -22,6 +24,14 @@ const router = createBrowserRouter([
       {
         path: "signin",
         element: <SignIn />,
+      },
+      {
+        path: "mypage",
+        element: <MyPage />,
+      },
+      {
+        path: "send",
+        element: <Send />,
       },
     ],
   },
