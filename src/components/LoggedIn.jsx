@@ -36,9 +36,9 @@ function LoggedIn() {
           mypage
         </button>
       </a>
-      <a href="/etc">
-        <button className="bg-green-500 h-24 w-48 ml-5 rounded-2xl text-white font-bold text-3xl hover:bg-green-400 transition ease-in-out delay-70">
-          etc
+      <a href="/send">
+        <button className="bg-green-500 h-24 w-48 ml-5 mr-5 rounded-2xl text-white font-bold text-3xl hover:bg-green-400 transition ease-in-out delay-70">
+          send
         </button>
       </a>
       <button
