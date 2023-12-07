@@ -6,7 +6,8 @@ const instance = axios.create({
   withCredentials: true,
 });
 
-export const getMe = () => instance.get("users/me").then((res) => res.data);
+export const getMe = () =>
+  instance.get("users/me").then((response) => response.data);
 
 export const signIn = ({ username, password }) => {
   return instance
@@ -35,3 +36,6 @@ export const signOut = () => {
     })
     .then((response) => response.data);
 };
+
+export const getMyWebhookLink = () =>
+  instance.get("links/me").then((res) => res.data);
