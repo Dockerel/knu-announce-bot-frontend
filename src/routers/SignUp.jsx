@@ -85,7 +85,7 @@ function SignUp() {
           />
         </form>
         <a href="/signin">
-          <span className="block text-xl mt-5 text-gray-400 hover:text-gray-600 underline font-semibold">
+          <span className="block text-xl mt-5 text-gray-400 hover:text-gray-600 underline font-semibold transition ease-in-out delay-70">
             Already have an account? &rarr;
           </span>
         </a>
