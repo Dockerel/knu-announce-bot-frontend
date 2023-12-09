@@ -4,37 +4,20 @@ import { getMyWebhookLink } from "../api";
 import { useQuery } from "@tanstack/react-query";
 
 function MyPage() {
-  const [values, setValues] = useState({
-    webhookurl: "",
-  });
+  const [url, setUrl] = useState("");
   const { isLoading, data, isError } = useQuery({
     queryKey: ["myLink"],
     queryFn: () => getMyWebhookLink(),
     retry: false,
   });
-  console.log(data);
 
-  // const mutation = useMutation({
-  //   mutationFn: signIn,
-  //   onMutate: () => {
-  //     setToastId(toast.loading("Waiting..."));
-  //   },
-  //   onSuccess: (data) => {
-  //     toast.dismiss(toastId);
-  //     toast.success("Successfully logged in!");
-  //     setTimeout(() => {
-  //       navigate("/");
-  //     }, 1300);
-  //   },
-  //   onError: (err) => {
-  //     toast.dismiss(toastId);
-  //     toast.error("Check your username / password.");
-  //   },
-  // });
+  const handleChange = (e) => {
+    setUrl(e.target.value);
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("hi");
+    setUrl(e.target.value);
   };
   return (
     <div>
@@ -42,11 +25,7 @@ function MyPage() {
         <>
           <div className="animate-pulse flex flex-col w-screen h-screen justify-center items-center">
             <span className="block font-bold text-5xl mb-6">MyPage</span>
-            <form
-              method="post"
-              className="flex flex-col"
-              onSubmit={handleSubmit}
-            >
+            <form method="post" className="flex flex-col">
               <input
                 type="text"
                 className="px-4 py-3 rounded-lg focus-within:outline-none mb-1 w-72 bg-gray-300"
@@ -75,7 +54,8 @@ function MyPage() {
                 placeholder="Discord Web Hook Url"
                 name="webhookurl"
                 required
-                value={data === undefined ? "" : data.link}
+                onChange={handleChange}
+                value={isLoading ? "" : data === undefined ? "" : data.link}
               />
               <input
                 type="submit"
