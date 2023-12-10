@@ -1,7 +1,8 @@
 import { useState } from "react";
-import { Toaster } from "react-hot-toast";
-import { getMyWebhookLink } from "../api";
-import { useQuery } from "@tanstack/react-query";
+import toast, { Toaster } from "react-hot-toast";
+import { getMyWebhookLink, postMyWebhookLink } from "../api";
+import { useMutation, useQuery } from "@tanstack/react-query";
+import { useNavigate } from "react-router-dom";
 
 function MyPage() {
   const [url, setUrl] = useState("");
@@ -10,6 +11,25 @@ function MyPage() {
     queryFn: () => getMyWebhookLink(),
     retry: false,
   });
+  const [toastId, setToastId] = useState();
+  const navigate = useNavigate();
+  const mutation = useMutation({
+    mutationFn: postMyWebhookLink,
+    onMutate: () => {
+      setToastId(toast.loading("Waiting..."));
+    },
+    onSuccess: (data) => {
+      toast.dismiss(toastId);
+      toast.success("Your Url Successfully set!");
+      setTimeout(() => {
+        navigate("/");
+      }, 1300);
+    },
+    onError: (err) => {
+      toast.dismiss(toastId);
+      toast.error("Check your url again.");
+    },
+  });
 
   const handleChange = (e) => {
     setUrl(e.target.value);
@@ -17,7 +37,9 @@ function MyPage() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setUrl(e.target.value);
+    let json = new Object();
+    json.link = url.trim();
+    mutation.mutate(json);
   };
   return (
     <div>
@@ -55,7 +77,7 @@ function MyPage() {
                 name="webhookurl"
                 required
                 onChange={handleChange}
-                value={isLoading ? "" : data === undefined ? "" : data.link}
+                value={isLoading ? "" : data === undefined ? url : data.link}
               />
               <input
                 type="submit"
