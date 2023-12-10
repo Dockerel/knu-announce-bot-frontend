@@ -39,3 +39,15 @@ export const signOut = () => {
 
 export const getMyWebhookLink = () =>
   instance.get("links/me").then((res) => res.data);
+
+export const postMyWebhookLink = ({ link }) => {
+  return instance
+    .post(
+      "links/addlink",
+      { link },
+      {
+        headers: { "X-CSRFToken": Cookie.get("csrftoken") || "" },
+      }
+    )
+    .then((response) => response.data);
+};
