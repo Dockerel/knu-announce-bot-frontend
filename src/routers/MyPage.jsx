@@ -77,7 +77,7 @@ function MyPage() {
                 name="webhookurl"
                 required
                 onChange={handleChange}
-                value={isLoading ? "" : data === undefined ? url : data.link}
+                defaultValue={isLoading ? "" : data === undefined ? url : data.link}
               />
               <input
                 type="submit"
