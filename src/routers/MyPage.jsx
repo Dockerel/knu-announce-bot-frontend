@@ -1,6 +1,6 @@
 import { useState } from "react";
 import toast, { Toaster } from "react-hot-toast";
-import { getMyWebhookLink, postMyWebhookLink } from "../api";
+import { getMyWebhookLink, putMyWebhookLink } from "../api";
 import { useMutation, useQuery } from "@tanstack/react-query";
 import { useNavigate } from "react-router-dom";
 
@@ -14,7 +14,7 @@ function MyPage() {
   const [toastId, setToastId] = useState();
   const navigate = useNavigate();
   const mutation = useMutation({
-    mutationFn: postMyWebhookLink,
+    mutationFn: putMyWebhookLink,
     onMutate: () => {
       setToastId(toast.loading("Waiting..."));
     },
