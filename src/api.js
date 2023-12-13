@@ -40,9 +40,9 @@ export const signOut = () => {
 export const getMyWebhookLink = () =>
   instance.get("links/me").then((res) => res.data);
 
-export const postMyWebhookLink = ({ link }) => {
+export const putMyWebhookLink = ({ link }) => {
   return instance
-    .post(
+    .put(
       "links/addlink",
       { link },
       {
