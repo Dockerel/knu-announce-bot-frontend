@@ -77,7 +77,7 @@ function SignUp() {
         </form>
         <a href="/signup">
           <span className="block text-xl mt-5 text-gray-400 hover:text-gray-600 underline font-semibold transition ease-in-out delay-70">
-            Sign In &rarr;
+            Sign Up &rarr;
           </span>
         </a>
       </div>

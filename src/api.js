@@ -51,3 +51,27 @@ export const putMyWebhookLink = ({ link }) => {
     )
     .then((response) => response.data);
 };
+
+export const postSendToday = () => {
+  return instance
+    .post("users/sendtoday", null, {
+      headers: { "X-CSRFToken": Cookie.get("csrftoken") || "" },
+    })
+    .then((response) => response.data);
+};
+
+export const postSendAll = () => {
+  return instance
+    .post("users/sendall", null, {
+      headers: { "X-CSRFToken": Cookie.get("csrftoken") || "" },
+    })
+    .then((response) => response.data);
+};
+
+export const deleteMe = () => {
+  return instance
+    .delete("users/me", {
+      headers: { "X-CSRFToken": Cookie.get("csrftoken") || "" },
+    })
+    .then((response) => response.status);
+};

@@ -4,7 +4,6 @@ import LoggedOut from "../components/LoggedOut";
 function InitialPage() {
   const { userLoading, isLoggedIn, user } = useUser();
   return (
-    // <div className="flex flex-col w-screen h-screen justify-center items-center">
     <div className="flex  flex-col w-screen h-screen justify-center items-center">
       <a href="/">
         <div className="text-5xl mb-12 font-bold hover:text-gray-400 transition ease-in-out delay-100">
