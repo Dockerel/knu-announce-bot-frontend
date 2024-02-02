@@ -1,15 +1,15 @@
 import { createBrowserRouter } from "react-router-dom";
+import Root from "./components/Root";
 import NotFound from "./routers/NotFound";
 import InitialPage from "./routers/InitialPage";
 import SignUp from "./routers/SignUp";
 import SignIn from "./routers/SignIn";
-import Root from "./components/Root";
 import Send from "./routers/Send";
 import MyPage from "./routers/MyPage";
 
 const router = createBrowserRouter([
   {
-    path: "/*",
+    path: "/",
     element: <Root />,
     errorElement: <NotFound />,
     children: [
