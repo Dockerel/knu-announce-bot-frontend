@@ -9,7 +9,7 @@ import MyPage from "./routers/MyPage";
 
 const router = createBrowserRouter([
   {
-    path: "/",
+    path: "/*",
     element: <Root />,
     errorElement: <NotFound />,
     children: [
